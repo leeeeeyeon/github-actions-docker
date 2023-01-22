@@ -24,6 +24,11 @@ public class HelloController {
         return helloService.getHello(id);
     }
 
+    @GetMapping("/dev")
+    public String getDev() {
+        return "dev에서만 보여야 함";
+    }
+
     @PostMapping("/hello")
     public Long postHello(@RequestBody HelloRequestDto helloRequestDto) {
         return helloService.postHello(helloRequestDto);
