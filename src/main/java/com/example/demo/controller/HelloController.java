@@ -28,4 +28,9 @@ public class HelloController {
     public Long postHello(@RequestBody HelloRequestDto helloRequestDto) {
         return helloService.postHello(helloRequestDto);
     }
+
+    @GetMapping("/hello/test")
+    public String helloTest() {
+        return "test";
+    }
 }
