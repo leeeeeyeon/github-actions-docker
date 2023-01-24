@@ -31,6 +31,6 @@ public class HelloController {
 
     @GetMapping("/hello/test")
     public String helloTest() {
-        return "test";
+        return "test2";
     }
 }
