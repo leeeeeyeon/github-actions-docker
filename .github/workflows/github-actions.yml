@@ -109,7 +109,7 @@ jobs:
           username: ${{ secrets.USERNAME }} # ubuntu
           password: ${{ secrets.PASSWORD }}
           port: 22
-          #key: ${{ secrets.PRIVATE_KEY }}
+          key: ${{ secrets.PRIVATE_KEY }}
           script: |
             sudo docker rm -f $(docker ps -qa)
             sudo docker pull ${{ secrets.DOCKER_REPO }}/docker-test-dev
