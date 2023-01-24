@@ -98,7 +98,7 @@ jobs:
             sudo docker ps
             sudo docker rm -f $(docker ps -qa)
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/docker-test-prod
-            sudo docker run -d -p 8082:8082 ${{ secrets.DOCKER_USERNAME }}/docker-test-prod
+            sudo nohup docker run -d -p 8082:8082 ${{ secrets.DOCKER_USERNAME }}/docker-test-prod > nohup-prod.out 2>&1 &
             sudo docker image prune -f
 
       ## deploy to develop
@@ -116,5 +116,5 @@ jobs:
             sudo docker ps
             sudo docker rm -f $(docker ps -qa)
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/docker-test-dev
-            sudo docker run -d -p 8081:8081 ${{ secrets.DOCKER_USERNAME }}/docker-test-dev
+            sudo nohup docker run -d -p 8081:8081 ${{ secrets.DOCKER_USERNAME }}/docker-test-dev > nohup-dev.out 2>&1 &
             sudo docker image prune -f
