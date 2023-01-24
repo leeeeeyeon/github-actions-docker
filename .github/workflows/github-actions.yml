@@ -99,7 +99,6 @@ jobs:
             sudo docker rm -f $(docker ps -qa)
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/docker-test-prod
             sudo docker run -p 8082:8082 ${{ secrets.DOCKER_USERNAME }}/docker-test-prod
-            docker image prune -f
 
       ## deploy to develop
       - name: Deploy to dev
@@ -117,4 +116,3 @@ jobs:
             sudo docker rm -f $(docker ps -qa)
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/docker-test-dev
             sudo docker run -p 8081:8081 ${{ secrets.DOCKER_USERNAME }}/docker-test-dev
-            docker image prune -f
