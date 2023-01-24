@@ -96,7 +96,7 @@ jobs:
           envs: GITHUB_SHA
           script: |
             sudo docker rm -f $(docker ps -qa)
-            sudo docker pull ${{ secrets.DOCKER_REPO }}/docker-test-prod
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/docker-test-prod
             docker image prune -f
 
       ## deploy to develop
@@ -112,5 +112,5 @@ jobs:
           key: ${{ secrets.PRIVATE_KEY }}
           script: |
             sudo docker rm -f $(docker ps -qa)
-            sudo docker pull ${{ secrets.DOCKER_REPO }}/docker-test-dev
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/docker-test-dev
             docker image prune -f
